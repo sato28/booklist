@@ -1,0 +1,14 @@
+SQLとして必要なもの
+・ユーザーとパスワードを管理するテーブルusername
+・ユーザーの本リストを管理するテーブル"ユーザー名"
+
+t10307028=> select * from login;
+ username | pass 
+----------+------
+ root     | 0000
+(1 row)
+
+t10307028=> create table login ( username TEXT, pass TEXT);
+CREATE TABLE
+t10307028=> insert into login values('root', '0000');
+INSERT 0 1

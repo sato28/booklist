@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>    
+<link rel="stylesheet" href="tab.css" type="text/css">
+<meta charset="utf-8">
+    <script src="lightsout.js"></script>
+    <style type="text/css">
+    <!--
+#Div{
+   border: 1px ridge fuchsia;
+   width : 380px;
+   padding : 10px;
+ }
+ 
+#game{
+width:300px;
+height:300px;
+border:2px #2b2b2b solid;
+background-color: #65A977; 
+ border-collapse: collapse;
+
+}
+table.box
+{
+width:80%;
+height:80%;
+}
+#game th,td{
+	border: 3px solid #999999;
+   cursor: hand;
+  }
+#Div{
+   border: 1px ridge fuchsia;
+   width : 380px;
+   padding : 10px;
+ }
+ 
+ -->
+</style>
+<script language="javascript">
+<!--
+
+function getCELL(){
+	var myTbl = document.getElementById('game');
+	for (var i=0; i<myTbl.rows.length; i++) { //行位置取得。
+		for (var j=0; j<myTbl.rows[i].cells.length; j++) { //行内セル位置取得。
+			var Cells=myTbl.rows[i].cells[j]; //i番行のj番列のセル "td"
+			Cells.onclick =function(){
+				put(this);
+			} // onclickで 'Mclk'を実行。
+		}
+	}
+}
+      
+function system(call){
+	var type;
+	for (var i = 0; i < document.test.type.length; i++){
+		if(document.test.type[i].checked == true)type = document.test.type[i].value;
+	}
+    	if(call==3){
+			if(type=='0')reset(100);//EASY
+			else if(type=='1')reset(5);
+			else reset(2);
+		}	// Reset
+}
+       // try ～ catch 例外処理、エラー処理
+       // イベントリスナーaddEventListener,attachEventメソッド
+ try{
+  window.addEventListener("load",getCELL,false);
+      }catch(e){
+    window.attachEvent("onload",getCELL);
+   }
+ 
+-->
+</script>
+</head>
+
+<body>
+	<div id="Body_container">
+		<ul class="tab clear"> <!-- タブの形指定 -->
+			<li><a href="main.php" class="blue">Book List</a></li>
+			<li><a href="edit.php" class="green">メモ帳</a></li>
+			<li><a href="#" class="yellow">ゲーム</a></li>
+			<li><a href="logout.php" class="red">ログアウト</a><li>
+		</ul>
+		<div id="background" style="position:absolute">
+	    	<div id="Game_menu" >
+				<a href="live.html">ライフゲーム</a><br />
+   	 			<a href="8queen.html" >エイトクイーン</a><br />
+   	 			<a href="#" >ライツアウト</a><br />
+    		</div>
+    		<div id="Game_play" >
+    			<table id="game">
+    				<script type="text/javascript">
+    					drow();
+					</script>
+				</table>
+				<form name="test">
+					<input type="radio" name="type" value="0" checked>EASY
+					<input type="radio" name="type" value="1">NORMAL
+					<input type="radio" name="type" value="2">HARD
+               		<input type="button" name="RESET" value="RESET" onClick="system(3)"> 
+    	    	</form>ライツアウト<br />
+				<br /><br />
+ 
+			</div>
+		</div>
+	</div>
+</body>
+</html>
